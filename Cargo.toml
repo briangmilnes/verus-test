@@ -1,0 +1,32 @@
+[package]
+name = "verus-test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+verus_builtin_macros = { path = "/home/milnes/projects/verus-lang/source/builtin_macros" }
+verus_builtin = { path = "/home/milnes/projects/verus-lang/source/builtin" }
+vstd = { path = "/home/milnes/projects/verus-lang/source/vstd", default-features = false }
+
+[dev-dependencies]
+
+[profile.release]
+incremental = true
+
+[lints.rust]
+non_snake_case = "allow"
+non_upper_case_globals = "allow"
+unused_imports = "allow"
+dead_code = "allow"
+
+[lints.clippy]
+module_inception = "allow"
+type_complexity = "allow"
+
+[workspace]
+members = ["."]
+
+[[test]]
+name = "TestInsertionSortStEph"
+path = "tests/TestInsertionSortStEph.rs"
+
