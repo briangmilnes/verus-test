@@ -339,7 +339,9 @@ pub mod Types {
         admit();
     }
 
+    #[cfg(verus_keep_ghost)]
     use crate::vstdplus::feq::feq::obeys_feq_full;
+    #[cfg(verus_keep_ghost)]
     use vstd::std_specs::hash::obeys_key_model;
 
     pub open spec fn Pair_feq_trigger<K, V>() -> bool { true }

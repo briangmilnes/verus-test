@@ -6,7 +6,7 @@ edition = "2024"
 [dependencies]
 verus_builtin_macros = { path = "/home/milnes/projects/verus-lang/source/builtin_macros" }
 verus_builtin = { path = "/home/milnes/projects/verus-lang/source/builtin" }
-vstd = { path = "/home/milnes/projects/verus-lang/source/vstd", default-features = false }
+vstd = { path = "/home/milnes/projects/verus-lang/source/vstd", features = ["alloc", "std"] }
 
 [dev-dependencies]
 
@@ -18,6 +18,7 @@ non_snake_case = "allow"
 non_upper_case_globals = "allow"
 unused_imports = "allow"
 dead_code = "allow"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(verus_keep_ghost)'] }
 
 [lints.clippy]
 module_inception = "allow"
@@ -28,5 +29,17 @@ members = ["."]
 
 [[test]]
 name = "TestInsertionSortStEph"
-path = "tests/TestInsertionSortStEph.rs"
+path = "tests/Chap03/TestInsertionSortStEph.rs"
+
+[[test]]
+name = "TestSetStEph"
+path = "tests/Chap05/TestSetStEph.rs"
+
+[[test]]
+name = "TestRelationStEph"
+path = "tests/Chap05/TestRelationStEph.rs"
+
+[[test]]
+name = "TestMappingStEph"
+path = "tests/Chap05/TestMappingStEph.rs"
 
